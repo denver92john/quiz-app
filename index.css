@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
 header {
     height: 30vh;
     padding-top: 25px;
@@ -34,11 +37,11 @@ footer {
     text-align: center;
 }
 
-.startQuiz {
+.start-quiz {
     text-align: center;
     padding: 50px 5px;
 }
-.startButton {
+.start-button {
     margin-top: 50px;
     padding: 10px 25px;
 }
@@ -56,7 +59,7 @@ footer {
         right: 35px;
         font-size: 2em;
     }
-    .startQuiz {
+    .start-quiz {
         font-size: 1.4em;
         padding-top: 75px;
     }
