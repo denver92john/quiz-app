@@ -14,18 +14,54 @@
         <div class="logo">
             <img src="https://www.nps.gov/common/commonspot/templates/assetsCT/images/branding/nps_logo-bw.gif" alt="National Park Service">
         </div>
-        <div class="score-div">Score: <span class="score">0</span></div>
+        <div class="score-div"><span class="current-score">Score: 0</span></div>
     </header>
 
     <main role="main">
-        <section role="region" class="start-quiz">
+        <section role="region" class="start-quiz js-start-quiz">
             <h1>How well do you know Yellowstone National Park?</h1>
             <button type="button" class="start-button js-start-button">Find Out</button>
+        </section>
+            
+        <section role="region" class="question-section js-question-section">
+            <h2></h2>
+            <form>
+                <label class="form-options">
+                    <input type="radio" name="answer" id="option1">
+                    <span></span>
+                </label>
+                <label class="form-options">
+                    <input type="radio" name="answer" id="option2">
+                    <span></span>
+                </label>
+                <label class="form-options">
+                    <input type="radio" name="answer" id="option3">
+                    <span></span>
+                </label>
+                <label class="form-options">
+                    <input type="radio" name="answer" id="option4">
+                    <span></span>
+                </label>
+                <input type="button" value="Answer" class="answer-button js-answer-button">
+            </form>
+        </section>
+
+        <section role="region" class="answer-feedback js-answer-feedback">
+            <img src="" alt="" class="answer-image js-answer-image">
+            <h3></h3>
+            <button type="button" class="next-question js-next-question">Next Question</button>
+        </section>
+
+        <section role="region" class="score-feedback js-score-feedback">
+            <h3></h3>
+            <img src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAwNC8zMDMvb3JpZ2luYWwvMDcxMTMwLWdleXNlci1mYWl0aGZ1bC0wMi5qcGc=
+            " alt="old faithful">
+            <button type="button" class="quiz-rest js-quiz-reset">Try Again</button>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <div class="question-div">Question: <span class="questionNumber">0</span>/10</div>
+        <div class="question-div"><span class="question-count">Question: 0/10</span></div>
     </footer>
     <script
     src="https://code.jquery.com/jquery-3.4.0.min.js"

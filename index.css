@@ -1,9 +1,48 @@
+/* BASIC SETUP */
 * {
     box-sizing: border-box;
 }
 body {
     font-family: 'Noto Sans', sans-serif;
 }
+
+/* HEADINGS */
+h1 {
+    color: antiquewhite;
+}
+
+
+/* BUTTONS */
+.start-button {
+    margin-top: 50px;
+    padding: 10px 25px;
+}
+
+/* PROGESS CONTENT - questions number and score */
+.score-div {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+/*
+.current-score {
+
+}
+*/
+.question-div {
+    position: relative;
+    top: 1vh;
+    font-size: 1.5em;
+    text-align: center;
+}
+/*
+.question-count {
+
+}
+*/
+
+
+/* HEADER */
 header {
     height: 30vh;
     padding-top: 25px;
@@ -15,14 +54,25 @@ header {
     display: block;
     margin: auto;
 }
-.score-div {
-    text-align: center;
-    font-size: 1.5em;
-    margin-top: 30px;
-}
+
+
+/* MAIN CONTENT */
 main {
     height: 65vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://gypsyguide.com/wp-content/uploads/2017/09/Yellowstone-and-Grand-Teton-National-Park-Tours-850x429.jpg)  center / cover no-repeat;
+    padding: 0 20px;
+    
 }
+section {
+    display: none;
+}
+.start-quiz {
+    display: block;
+    text-align: center;
+    padding: 50px 5px;
+}
+
+/* FOOTER */
 footer {
     position: absolute;
     height: 5vh;
@@ -30,21 +80,10 @@ footer {
     background-color: gray;
     bottom: 0;
 }
-.question-div {
-    position: relative;
-    top: 1vh;
-    font-size: 1.5em;
-    text-align: center;
-}
 
-.start-quiz {
-    text-align: center;
-    padding: 50px 5px;
-}
-.start-button {
-    margin-top: 50px;
-    padding: 10px 25px;
-}
+
+
+
 
 
 @media screen and (min-width: 680px) {
@@ -59,8 +98,5 @@ footer {
         right: 35px;
         font-size: 2em;
     }
-    .start-quiz {
-        font-size: 1.4em;
-        padding-top: 75px;
-    }
+    
 }

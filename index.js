@@ -1,5 +1,12 @@
 'use strict';
 
+const correctAnswerImg = "https://www.nps.gov/yell/planyourvisit/images/Avalanche-Peak-4sm.jpg?maxwidth=1200&maxheight=1200&autorotate=false";
+const wrongAnswerImg = " https://static.boredpanda.com/blog/wp-content/uploads/2014/03/funny-bears-doing-human-things-1.jpg";
+
+let questionCounter = 0;
+let score = 0;
+let questionCount = questions.length;
+
 function generateQuestion(q) {
     return `
         <section role="region" class="">
@@ -23,6 +30,7 @@ function generateQuestion(q) {
 }
 
 
+
 function startQuiz() {
     // responsible for starting the yellowstone quiz
     $('section').on('click', '.js-start-button', function(event) {
@@ -32,10 +40,26 @@ function startQuiz() {
     });
 
     console.log(`startQuiz is running`);
+    renderQuestion();
 }
 
 function renderQuestion() {
     // responsible for rendering the next question to the DOM
+    /* 
+    // This function renders a new question
+function renderQuestion(){
+  $(".questions-form p").text(questionsArray[questionCounter].question);
+  $(".questions-form #option-one").val(questionsArray[questionCounter].optionone);
+  $(".questions-form #option-two").val(questionsArray[questionCounter].optiontwo);
+  $(".questions-form #option-three").val(questionsArray[questionCounter].optionthree);
+  $(".questions-form #option-four").val(questionsArray[questionCounter].optionfour);
+   
+  $(".questions-form #option-one").next().text(questionsArray[questionCounter].optionone);
+  $(".questions-form #option-two").next().text(questionsArray[questionCounter].optiontwo);
+  $(".questions-form #option-three").next().text(questionsArray[questionCounter].optionthree);
+  $(".questions-form #option-four").next().text(questionsArray[questionCounter].optionfour);
+}
+    */
 
     generateQuestion()
 
@@ -46,10 +70,11 @@ function submitAnswer() {
     // responsible for submitting selected answer for grading
 
     console.log(`submitAnswer is running`);
+    renderAnswerFeedback();
 }
 
 function renderAnswerFeedback() {
-    // responsible for rendering selected answer for feedback
+    // responsible for rendering submitted answer for feedback
 
     console.log(`renderAnswerFeedback is running`);
 }
@@ -59,6 +84,7 @@ function nextQuestion() {
     // question button
 
     console.log(`nextQuestion is running`);
+    renderQuestion();
 }
 
 function renderResultsFeedback() {
@@ -76,11 +102,8 @@ function restartQuiz() {
 
 function handleYellowstone() {
     startQuiz();
-    renderQuestion();
     submitAnswer();
-    renderAnswerFeedback();
     nextQuestion();
-    renderResultsFeedback();
     restartQuiz();
 }
 

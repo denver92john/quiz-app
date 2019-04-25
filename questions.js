@@ -2,8 +2,7 @@
 
 const questions = [
     {
-        id: 'q1',
-        question: 'While being the oldest National Park in North America, what year was Yellowstone designated?',
+        question: '1. While being the oldest National Park in North America, what year was Yellowstone designated?',
         ansA: '1776',
         ansB: '1801',
         ansC: '1872',
@@ -11,8 +10,7 @@ const questions = [
         correct: '1872'
     },
     {
-        id: 'q2',
-        question: 'What are examples of geothermal features?',
+        question: '2. What are examples of geothermal features?',
         ansA: 'hot springs and geysers',
         ansB: 'mountains and canyons',
         ansC: 'trees and rivers',
@@ -20,8 +18,7 @@ const questions = [
         correct: 'hot springs and geysers'
     },
     {
-        id: 'q3',
-        question: 'Approximately, what percentage of the World’s geysers are in Yellowstone?',
+        question: '3. Approximately, what percentage of the World’s geysers are in Yellowstone?',
         ansA: '5%',
         ansB: '25%',
         ansC: '50%',
@@ -29,8 +26,7 @@ const questions = [
         correct: '75%'
     },
     {
-        id: 'q4',
-        question: 'Approximatley, how long ago did Yellowstone last erupted?',
+        question: '4. Approximatley, how long ago did Yellowstone last erupted?',
         ansA: '1,500 years ago',
         ansB: '425,000 years ago',
         ansC: '640,000 years ago',
@@ -38,8 +34,7 @@ const questions = [
         correct: '640,000 years ago'
     },
     {
-        id: 'q5',
-        question: 'In which states does Yellowstone spread across?',
+        question: '5. In which states does Yellowstone spread across?',
         ansA: 'Maine, Canada, and New York',
         ansB: 'Idaho, Wyoming, and Montana',
         ansC: 'California, Nevada, and Arizona',
@@ -47,8 +42,7 @@ const questions = [
         correct: 'Idaho, Wyoming, and Montana'
     },
     {
-        id: 'q6',
-        question: 'While being the largest high elevation lake in North America, what is the elevation of Yellowstone Lake?',
+        question: '6. While being the largest high elevation lake in North America, what is the elevation of Yellowstone Lake?',
         ansA: '1254 feet',
         ansB: '5280 feet',
         ansC: '7733 feet',
@@ -56,8 +50,7 @@ const questions = [
         correct: '7733 feet'
     },
     {
-        id: 'q7',
-        question: 'Which animal species in Yellowstone did the government eradicate, and then reintroduce to the ecosystem?',
+        question: '7. Which animal species in Yellowstone did the government eradicate, and then reintroduce to the ecosystem?',
         ansA: 'Bison',
         ansB: 'Grey Wolf',
         ansC: 'Moose',
@@ -65,8 +58,7 @@ const questions = [
         correct: 'Grey Wolf'
     },
     {
-        id: 'q8',
-        question: 'Approximately, how many earthquakes does Yellowstone experience on a yearly basis?',
+        question: '8. Approximately, how many earthquakes does Yellowstone experience on a yearly basis?',
         ansA: 'Less than 10',
         ansB: '100',
         ansC: '500',
@@ -74,8 +66,7 @@ const questions = [
         correct: 'more than a thousand'
     },
     {
-        id: 'q9',
-        question: 'Yellowstone is home to America’s largest and oldest natural herd of what type of animal? ',
+        question: '9. Yellowstone is home to America’s largest and oldest natural herd of what type of animal? ',
         ansA: 'Bison',
         ansB: 'Grey Wolf',
         ansC: 'Grizzly Bear',
@@ -83,8 +74,7 @@ const questions = [
         correct: 'Bison'
     },
     {
-        id: 'q10',
-        question: 'How many current Native American tribes have a historic connection to the land and resources found in Yellowstone?',
+        question: '10. How many current Native American tribes have a historic connection to the land and resources found in Yellowstone?',
         ansA: '1 tribe',
         ansB: '7 tribes',
         ansC: '16 tribes',
