@@ -7,10 +7,21 @@ body {
 }
 
 /* HEADINGS */
-h1 {
+h1, h2, h3 {
+    text-align: center;
     color: antiquewhite;
 }
-
+h1 {
+    font-size: 2.5em;
+}
+h2 {
+    font-size: 2em;
+    margin: 10px 0 30px;
+}
+h3 {
+    color: black;
+    margin-bottom: 40px;
+}
 
 /* BUTTONS */
 .start-button {
@@ -18,11 +29,34 @@ h1 {
     padding: 10px 25px;
 }
 
+.answer-button {
+    font-size: 1.2em;
+    display: block;
+    margin: auto;
+}
+
+.next-question {
+    font-size: 1.5em;
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.quiz-reset {
+    font-size: 1.5em;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+
 /* PROGESS CONTENT - questions number and score */
+/* what about changing score-div and question-div 
+to the same class name of progress? */
 .score-div {
     text-align: center;
     font-size: 1.5em;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 /*
 .current-score {
@@ -44,33 +78,97 @@ h1 {
 
 /* HEADER */
 header {
-    height: 30vh;
-    padding-top: 25px;
+    height: 20vh;
+    margin: auto;
+    padding: 10px;
     position: relative;
     max-width: 1146px;
-    margin: auto;
+    background: rgba(255, 97, 97, 0.5);
 }
 .logo img {
     display: block;
     margin: auto;
+    width: 100px;
 }
 
 
 /* MAIN CONTENT */
 main {
-    height: 65vh;
+    height: 80vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://gypsyguide.com/wp-content/uploads/2017/09/Yellowstone-and-Grand-Teton-National-Park-Tours-850x429.jpg)  center / cover no-repeat;
-    padding: 0 20px;
-    
+    padding: 20px;
+
 }
 section {
     display: none;
+    max-width: 1146px;
 }
+
+/* START PAGE
 .start-quiz {
     display: block;
-    text-align: center;
     padding: 50px 5px;
 }
+*/
+
+/* QUESTION SECTION 
+.question-section {
+    display: block;
+    
+}
+*/
+
+/* FORM SECTION */
+.question-form {
+    width: 80vw;
+    max-width: 800px;
+    background: linear-gradient(rgba(250, 235, 215, 0.5), rgba(250, 235, 215, 0.5));
+    margin: auto;
+    padding: 15px;
+    font-size: 1.35em;
+}
+.form-options {
+    display: block;
+    padding-bottom: 15px;
+    
+}
+.answer-option {
+    padding-left: 10px;
+}
+
+
+/* ANSWER-QUESTION RESPONSE SECTION */
+.answer-feedback {
+    width: 90vw;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 0;
+    background: linear-gradient(rgba(250, 235, 215, 0.5), rgba(250, 235, 215, 0.5));
+}
+.answer-image {
+    display: block;
+    width: 75%;
+    margin: auto;
+}
+
+
+
+/* OVERALL SCORE SECTION */
+.score-feedback {
+    width: 90vw;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px 10px;
+    background: linear-gradient(rgba(250, 235, 215, 0.5), rgba(250, 235, 215, 0.5));
+}
+
+.final-feedback-img {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+
+
 
 /* FOOTER */
 footer {
@@ -85,6 +183,11 @@ footer {
 
 
 
+/* THIS INFO IN queries.css BUT STILL NEEDS TO
+BE LINKED TO IN index.html
+
+ITS BEEN LINKED BUT STILL NEED TO RESTRUCTURE
+quiz-app FOLDER
 
 @media screen and (min-width: 680px) {
     header div {
@@ -100,3 +203,4 @@ footer {
     }
     
 }
+*/

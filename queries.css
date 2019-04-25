@@ -1,0 +1,14 @@
+@media screen and (min-width: 680px) {
+    header div {
+        position: absolute;
+        bottom: 30px;
+    }
+    .logo {
+        left: 35px;
+    }
+    .score-div {
+        right: 35px;
+        font-size: 2em;
+    }
+    
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 const correctAnswerImg = "https://www.nps.gov/yell/planyourvisit/images/Avalanche-Peak-4sm.jpg?maxwidth=1200&maxheight=1200&autorotate=false";
-const wrongAnswerImg = " https://static.boredpanda.com/blog/wp-content/uploads/2014/03/funny-bears-doing-human-things-1.jpg";
+const wrongAnswerImg = "https://static.boredpanda.com/blog/wp-content/uploads/2014/03/funny-bears-doing-human-things-1.jpg";
 
 let questionCounter = 0;
 let score = 0;
@@ -107,4 +107,4 @@ function handleYellowstone() {
     restartQuiz();
 }
 
-$(handleYellowstone);
+// $(handleYellowstone);

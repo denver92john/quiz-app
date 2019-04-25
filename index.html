@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="#">
 </head>
 <body>
     <header role="banner">
@@ -24,39 +25,40 @@
         </section>
             
         <section role="region" class="question-section js-question-section">
-            <h2></h2>
-            <form>
+            <h2>The Question</h2>
+            <form class="question-form">
                 <label class="form-options">
-                    <input type="radio" name="answer" id="option1">
-                    <span></span>
+                    <input type="radio" name="answer" id="option1" value="">
+                    <span class="answer-option">Answer 1</span>
                 </label>
                 <label class="form-options">
-                    <input type="radio" name="answer" id="option2">
-                    <span></span>
+                    <input type="radio" name="answer" id="option2" value="">
+                    <span class="answer-option">Answer 2</span>
                 </label>
                 <label class="form-options">
-                    <input type="radio" name="answer" id="option3">
-                    <span></span>
+                    <input type="radio" name="answer" id="option3" value="">
+                    <span class="answer-option">Answer 3</span>
                 </label>
                 <label class="form-options">
-                    <input type="radio" name="answer" id="option4">
-                    <span></span>
+                    <input type="radio" name="answer" id="option4" value="">
+                    <span class="answer-option">Answer 4</span>
                 </label>
                 <input type="button" value="Answer" class="answer-button js-answer-button">
             </form>
         </section>
 
         <section role="region" class="answer-feedback js-answer-feedback">
-            <img src="" alt="" class="answer-image js-answer-image">
-            <h3></h3>
+            <img src="https://www.nps.gov/yell/planyourvisit/images/Avalanche-Peak-4sm.jpg?maxwidth=1200&maxheight=1200&autorotate=false
+            " alt="correct answer picture" class="answer-image js-answer-image">
+            <h3>Your answer is correct!</h3>
             <button type="button" class="next-question js-next-question">Next Question</button>
         </section>
 
         <section role="region" class="score-feedback js-score-feedback">
-            <h3></h3>
+            <h2>Looks like you know Yellowstone National Park pretty well!</h2>
             <img src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAwNC8zMDMvb3JpZ2luYWwvMDcxMTMwLWdleXNlci1mYWl0aGZ1bC0wMi5qcGc=
-            " alt="old faithful">
-            <button type="button" class="quiz-rest js-quiz-reset">Try Again</button>
+            " alt="old faithful" class="final-feedback-img">
+            <button type="button" class="quiz-reset js-quiz-reset">Try Again</button>
         </section>
     </main>
 
