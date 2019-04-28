@@ -5,99 +5,227 @@ const wrongAnswerImg = "https://static.boredpanda.com/blog/wp-content/uploads/20
 
 let questionCounter = 0;
 let score = 0;
-let questionCount = questions.length;
+let allOfQuestions = questions.length;
 
-function generateQuestion(q) {
-    return `
-        <section role="region" class="">
-			<h2>${q.question}</h2>
-			<form>
-				<label>
-					<input type="radio" name="answer" value="${q.ansA}"><span>${q.ansA}</span>
-				</label>
-				<label>
-					<input type="radio" name="answer" value="${q.ansB}"><span>${q.ansB}</span>
-				</label>
-				<label>
-					<input type="radio" name="answer" value="${q.ansC}"><span>${q.ansC}</span>
-				</label>
-				<label>
-					<input type="radio" name="answer" value="${q.ansD}"><span>${q.ansD}</span>
-				</label>
-				<button type="submit" class="submitAnswer">Submit</button>
-			</form>
-		</section>`;
+function renderScore() {
+    //console.log(`renderScore() is running`);
+
+    $('.js-current-score').text(`Score: ${score}`);
 }
 
-
-
-function startQuiz() {
-    // responsible for starting the yellowstone quiz
-    $('section').on('click', '.js-start-button', function(event) {
-        
-
-
-    });
-
-    console.log(`startQuiz is running`);
-    renderQuestion();
+function renderQuestionCount() {
+    //console.log('renderQuestionCount() is running');
+    
+    $('.js-question-count').text(`Question: ${questionCounter}/10`);
 }
 
 function renderQuestion() {
-    // responsible for rendering the next question to the DOM
-    /* 
-    // This function renders a new question
-function renderQuestion(){
-  $(".questions-form p").text(questionsArray[questionCounter].question);
-  $(".questions-form #option-one").val(questionsArray[questionCounter].optionone);
-  $(".questions-form #option-two").val(questionsArray[questionCounter].optiontwo);
-  $(".questions-form #option-three").val(questionsArray[questionCounter].optionthree);
-  $(".questions-form #option-four").val(questionsArray[questionCounter].optionfour);
-   
-  $(".questions-form #option-one").next().text(questionsArray[questionCounter].optionone);
-  $(".questions-form #option-two").next().text(questionsArray[questionCounter].optiontwo);
-  $(".questions-form #option-three").next().text(questionsArray[questionCounter].optionthree);
-  $(".questions-form #option-four").next().text(questionsArray[questionCounter].optionfour);
+    //console.log('renderQuestion() is running');
+    // look into using .next() to make this function shorter
+
+    $('.js-q').text(questions[questionCounter].question);
+
+    $('#option1').val(questions[questionCounter].ansA);
+    $('#option2').val(questions[questionCounter].ansB);
+    $('#option3').val(questions[questionCounter].ansC);
+    $('#option4').val(questions[questionCounter].ansD);
+
+    $('.js-ans-opt1').text(questions[questionCounter].ansA);
+    $('.js-ans-opt2').text(questions[questionCounter].ansB);
+    $('.js-ans-opt3').text(questions[questionCounter].ansC);
+    $('.js-ans-opt4').text(questions[questionCounter].ansD);
+
 }
-    */
 
-    generateQuestion()
+function startQuiz() {
+    // responsible for starting the yellowstone quiz
+    
+    // double check on how below bubbles up the DOM
+    $('.js-start-button').on('click', function() {
+        // console.log(`startQuiz is running`);
+        $('.js-start-quiz').hide();
+        $('.js-question-section').show();
+        
+        renderScore();
+        renderQuestionCount();
+        renderQuestion();
+    });
+}
 
-    console.log(`renderQuestion is running`);
+
+/* ---------- SUBMIT ANSWER SECTION ---------- */
+
+
+function renderNewScore() {
+    if ($('input:checked').val() === questions[questionCounter].correct) {
+        score++;
+    }
+    renderScore();
+}
+
+function userSelectedCorrectAnswer() {
+    // console.log('userSelectedCorrectAnswer() is running');
+
+    $('.js-answer-image').attr({'src': correctAnswerImg, 'alt': 'The correct answer image'});
+    $('.js-answer-feedback-text').text(`${questions[questionCounter].correct} is the correct answer`);
+}
+
+function userSelectedWrongAnswer() {
+    // console.log('userSelectedWrongAnswer() is running');
+
+    $('.js-answer-image').attr({'src': wrongAnswerImg, 'alt': 'The wrong answer image'});
+    $('.js-answer-feedback-text').text(`${$('input:checked').val()} is the wrong answer, ${questions[questionCounter].correct} is the correct answer`);
+}
+
+function checkAnswer() {
+    let selectedOption = $('input:checked').val();
+
+    let correctAnswer = questions[questionCounter].correct;
+
+    if (selectedOption === correctAnswer) {
+        userSelectedCorrectAnswer();
+    } 
+    if (selectedOption !== correctAnswer) {
+        userSelectedWrongAnswer();
+    }
+}
+
+function renderAnswerFeedback() {
+
+    $('.js-question-section').hide();
+
+    $('.js-answer-feedback').show();
+
 }
 
 function submitAnswer() {
     // responsible for submitting selected answer for grading
+    $('.js-answer-button').on('click', function() {
 
-    console.log(`submitAnswer is running`);
-    renderAnswerFeedback();
+        // render score-feedback section
+        renderAnswerFeedback();
+
+        // check answer
+        checkAnswer();
+
+        // render new score if correct at same time when rendering answer-feedback section
+        renderNewScore();
+
+    });
+
 }
 
-function renderAnswerFeedback() {
-    // responsible for rendering submitted answer for feedback
 
-    console.log(`renderAnswerFeedback is running`);
+
+/* ---------- NEXT QUESTION SECTION ---------- */
+
+function renderResultsFeedback() {
+    console.log('renderResultsFeedback() is running');
+
+    $('.js-question-section').hide();
+
+    $('.js-score-feedback').show();
+
+    // maybe check grade of quiz and give feedback?
+}
+
+
+
+// clears previous text for question and answers and renders next question and options
+
+function resetQuestion() {
+    $('.js-q').text('');
+
+        $('.js-ans-opt1').text('');
+        $('.js-ans-opt2').text('');
+        $('.js-ans-opt3').text('');
+        $('.js-ans-opt4').text('');
+}
+
+
+function rerenderQuestion() {
+    if (questionCounter < allOfQuestions) {
+        
+        resetQuestion();
+
+        renderQuestion();
+    } else {
+        renderResultsFeedback();
+    }
+}
+
+function rerenderQuestionSection() {
+    $('.js-answer-feedback').hide();
+
+    $('.js-question-section').show();
+}
+
+// adds 1 to questionCounter and rerenders question questionCounter
+function addToQuestionCounter() {
+    questionCounter++;
+    //console.log(`questionCounter is ${questionCounter}`);
+
+    renderQuestionCount();
 }
 
 function nextQuestion() {
     // responsible for going on to the next question, by clicking the next
     // question button
+    $('.js-next-question').on('click', function() {
+        //console.log('nextQuestion() is running');
 
-    console.log(`nextQuestion is running`);
-    renderQuestion();
+        // render new question count
+        addToQuestionCounter();
+
+        // hide answer-feedback section and rerender question-section
+        rerenderQuestionSection();
+
+        // go on to next question
+        rerenderQuestion();
+
+    });
+
 }
 
-function renderResultsFeedback() {
-    // responsible for rendering the overall results page
 
-    console.log(`rendersResultsFeedback is running`);
+
+/* ---------- RESET QUIZ SECTION ---------- */
+
+
+function hideScoreFeedback() {
+    $('.js-score-feedback').hide();
 }
+
 
 function restartQuiz() {
     // responsible for restarting the quiz by selecting the restart button
     // on the results page
 
-    console.log(`restartQuiz is running`);
+    $('.js-quiz-reset').on('click', function() {
+        console.log('reset quiz button was clicked');
+        console.log(`score is ${score} and question is ${questionCounter}`);
+        
+        // hide score feedback 
+        hideScoreFeedback();
+        
+        // reset score
+
+
+        // reset question count
+
+
+        // rerender question section
+        
+        
+        
+        
+        // rerender the first question
+        
+
+    });
+    
+    
+    
 }
 
 function handleYellowstone() {
@@ -107,4 +235,4 @@ function handleYellowstone() {
     restartQuiz();
 }
 
-// $(handleYellowstone);
+$(handleYellowstone);

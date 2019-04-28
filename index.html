@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="queries.css">
 </head>
 <body>
     <header role="banner">
-        <div class="logo">
-            <img src="https://www.nps.gov/common/commonspot/templates/assetsCT/images/branding/nps_logo-bw.gif" alt="National Park Service">
+        <div>
+            <img src="https://www.nps.gov/common/commonspot/templates/assetsCT/images/branding/nps_logo-bw.gif" alt="National Park Service" class="logo">
         </div>
-        <div class="score-div"><span class="current-score">Score: 0</span></div>
+        <div class="progress"><span class="js-current-score">Score: 0</span></div>
     </header>
 
     <main role="main">
@@ -25,37 +25,36 @@
         </section>
             
         <section role="region" class="question-section js-question-section">
-            <h2>The Question</h2>
+            <h2 class="js-q"></h2>
             <form class="question-form">
                 <label class="form-options">
                     <input type="radio" name="answer" id="option1" value="">
-                    <span class="answer-option">Answer 1</span>
+                    <span class="answer-option js-ans-opt1"></span>
                 </label>
                 <label class="form-options">
                     <input type="radio" name="answer" id="option2" value="">
-                    <span class="answer-option">Answer 2</span>
+                    <span class="answer-option js-ans-opt2"></span>
                 </label>
                 <label class="form-options">
                     <input type="radio" name="answer" id="option3" value="">
-                    <span class="answer-option">Answer 3</span>
+                    <span class="answer-option js-ans-opt3"></span>
                 </label>
                 <label class="form-options">
                     <input type="radio" name="answer" id="option4" value="">
-                    <span class="answer-option">Answer 4</span>
+                    <span class="answer-option js-ans-opt4"></span>
                 </label>
-                <input type="button" value="Answer" class="answer-button js-answer-button">
+                <button type="button" class="answer-button js-answer-button">Submit Answer</button>
             </form>
         </section>
 
         <section role="region" class="answer-feedback js-answer-feedback">
-            <img src="https://www.nps.gov/yell/planyourvisit/images/Avalanche-Peak-4sm.jpg?maxwidth=1200&maxheight=1200&autorotate=false
-            " alt="correct answer picture" class="answer-image js-answer-image">
-            <h3>Your answer is correct!</h3>
-            <button type="button" class="next-question js-next-question">Next Question</button>
+            <img src="" alt="" class="answer-image js-answer-image">
+            <h3 class="js-answer-feedback-text"></h3>
+            <button class="next-question js-next-question">Next Question</button>
         </section>
 
         <section role="region" class="score-feedback js-score-feedback">
-            <h2>Looks like you know Yellowstone National Park pretty well!</h2>
+            <h3>Looks like you know Yellowstone National Park pretty well!</h3>
             <img src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAwNC8zMDMvb3JpZ2luYWwvMDcxMTMwLWdleXNlci1mYWl0aGZ1bC0wMi5qcGc=
             " alt="old faithful" class="final-feedback-img">
             <button type="button" class="quiz-reset js-quiz-reset">Try Again</button>
@@ -63,7 +62,7 @@
     </main>
 
     <footer role="contentinfo">
-        <div class="question-div"><span class="question-count">Question: 0/10</span></div>
+        <div class="progress"><span class="js-question-count">Question: 0/10</span></div>
     </footer>
     <script
     src="https://code.jquery.com/jquery-3.4.0.min.js"

@@ -1,14 +1,36 @@
+/* SCREENS WITH A MINIMUM SCREEN SIZE OF 680PX */
 @media screen and (min-width: 680px) {
+    /* BASIC SETUP */
+    body {
+        font-size: 1.35em;
+    }
+
+    /* HEADER ELEMENTS */
+    header {
+        position: relative;
+    }
     header div {
         position: absolute;
-        bottom: 30px;
+        bottom: 1vh;
     }
-    .logo {
+    header div:first-of-type {
         left: 35px;
     }
-    .score-div {
+    header div:last-of-type {
         right: 35px;
-        font-size: 2em;
     }
-    
+    .logo {
+        height: 18vh;
+        width: auto;
+    }
+
+    /* PROGRESS */
+    .progress {
+        margin-top: 5px;
+    }
+
+    /* STARTING PAGE */
+    .start-quiz {
+        margin-top: 100px;
+    }
 }
