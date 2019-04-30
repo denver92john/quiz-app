@@ -7,48 +7,55 @@ let questionCounter = 0;
 let score = 0;
 let allOfQuestions = questions.length;
 
-function renderScore() {
-    //console.log(`renderScore() is running`);
+function questionObjectArray() {
+    return Object.values(questions[questionCounter]);
+}
 
-    $('.js-current-score').text(`Score: ${score}`);
+// hides start section and shows question section
+function startToQuestion() {
+    $('.js-start-quiz').hide();
+    $('.js-question-section').show();
 }
 
 function renderQuestionCount() {
-    //console.log('renderQuestionCount() is running');
-    
-    $('.js-question-count').text(`Question: ${questionCounter}/10`);
+    // renders updated question count to the DOM
+    $('.js-question-count').text(`Question: ${questionCounter + 1}/10`);
 }
 
+function generateQuestionCount() {
+    if (questionCounter < allOfQuestions) {
+        questionCounter++;
+    }
+
+    renderQuestionCount();
+}
+
+function generateQuestionValues(questionValues) {
+    $('#option1').val(questionValues[1]);
+    $('#option2').val(questionValues[2]);
+    $('#option3').val(questionValues[3]);
+    $('#option4').val(questionValues[4]);
+}
+
+function generateQuestionText(questionText) {
+    $('.js-q').text(questionText[0]);
+    $('.js-ans-opt1').text(questionText[1]);
+    $('.js-ans-opt2').text(questionText[2]);
+    $('.js-ans-opt3').text(questionText[3]);
+    $('.js-ans-opt4').text(questionText[4]);
+}
+
+// renders question text and values to the DOM
 function renderQuestion() {
-    //console.log('renderQuestion() is running');
-    // look into using .next() to make this function shorter
-
-    $('.js-q').text(questions[questionCounter].question);
-
-    $('#option1').val(questions[questionCounter].ansA);
-    $('#option2').val(questions[questionCounter].ansB);
-    $('#option3').val(questions[questionCounter].ansC);
-    $('#option4').val(questions[questionCounter].ansD);
-
-    $('.js-ans-opt1').text(questions[questionCounter].ansA);
-    $('.js-ans-opt2').text(questions[questionCounter].ansB);
-    $('.js-ans-opt3').text(questions[questionCounter].ansC);
-    $('.js-ans-opt4').text(questions[questionCounter].ansD);
-
+    generateQuestionValues(questionObjectArray());
+    generateQuestionText(questionObjectArray());
 }
 
-function startQuiz() {
-    // responsible for starting the yellowstone quiz
-    
-    // double check on how below bubbles up the DOM
+function handleStart() {
     $('.js-start-button').on('click', function() {
-        // console.log(`startQuiz is running`);
-        $('.js-start-quiz').hide();
-        $('.js-question-section').show();
-        
-        renderScore();
-        renderQuestionCount();
+        startToQuestion();
         renderQuestion();
+        renderQuestionCount();
     });
 }
 
@@ -56,183 +63,117 @@ function startQuiz() {
 /* ---------- SUBMIT ANSWER SECTION ---------- */
 
 
-function renderNewScore() {
-    if ($('input:checked').val() === questions[questionCounter].correct) {
-        score++;
-    }
-    renderScore();
-}
 
-function userSelectedCorrectAnswer() {
-    // console.log('userSelectedCorrectAnswer() is running');
 
-    $('.js-answer-image').attr({'src': correctAnswerImg, 'alt': 'The correct answer image'});
-    $('.js-answer-feedback-text').text(`${questions[questionCounter].correct} is the correct answer`);
-}
-
-function userSelectedWrongAnswer() {
-    // console.log('userSelectedWrongAnswer() is running');
-
-    $('.js-answer-image').attr({'src': wrongAnswerImg, 'alt': 'The wrong answer image'});
-    $('.js-answer-feedback-text').text(`${$('input:checked').val()} is the wrong answer, ${questions[questionCounter].correct} is the correct answer`);
+// hides question section and shows answer feedback section
+function questionToAnswerFeedback() {
+    $('.js-question-section').hide();
+    $('.js-answer-feedback').show();
 }
 
 function checkAnswer() {
-    let selectedOption = $('input:checked').val();
-
+    let userSelection = $('input:checked').val();
     let correctAnswer = questions[questionCounter].correct;
 
-    if (selectedOption === correctAnswer) {
-        userSelectedCorrectAnswer();
-    } 
-    if (selectedOption !== correctAnswer) {
-        userSelectedWrongAnswer();
+    if (userSelection === undefined) {
+        alert('Please select an answer');
+    } else if (userSelection === correctAnswer) {
+        score++;
+
+        $('.js-answer-image').attr({'src': correctAnswerImg, 'alt': 'The correct answer image'});
+        $('.js-answer-feedback-text').text(`${correctAnswer} is the correct answer`);
+    } else {
+        $('.js-answer-image').attr({'src': wrongAnswerImg, 'alt': 'The wrong answer image'});
+        $('.js-answer-feedback-text').text(`${userSelection} is the wrong answer, ${correctAnswer} is the correct answer`);
     }
 }
 
-function renderAnswerFeedback() {
-
-    $('.js-question-section').hide();
-
-    $('.js-answer-feedback').show();
-
+function renderScore() {
+    //renders updated score to DOM
+    $('.js-current-score').text(`Score: ${score}`);
 }
 
-function submitAnswer() {
-    // responsible for submitting selected answer for grading
+function handleAnswer() {
     $('.js-answer-button').on('click', function() {
-
         // render score-feedback section
-        renderAnswerFeedback();
+        questionToAnswerFeedback();
 
-        // check answer
+        // checks answer
         checkAnswer();
 
-        // render new score if correct at same time when rendering answer-feedback section
-        renderNewScore();
-
+        // render new score if correct
+        renderScore();
     });
-
 }
+
 
 
 
 /* ---------- NEXT QUESTION SECTION ---------- */
 
-function renderResultsFeedback() {
-    console.log('renderResultsFeedback() is running');
-
-    $('.js-question-section').hide();
-
-    $('.js-score-feedback').show();
-
-    // maybe check grade of quiz and give feedback?
-}
 
 
 
-// clears previous text for question and answers and renders next question and options
-
-function resetQuestion() {
-    $('.js-q').text('');
-
-        $('.js-ans-opt1').text('');
-        $('.js-ans-opt2').text('');
-        $('.js-ans-opt3').text('');
-        $('.js-ans-opt4').text('');
-}
-
-
-function rerenderQuestion() {
-    if (questionCounter < allOfQuestions) {
-        
-        resetQuestion();
-
-        renderQuestion();
-    } else {
-        renderResultsFeedback();
-    }
-}
-
-function rerenderQuestionSection() {
+function answerFeedbackToNext() {
     $('.js-answer-feedback').hide();
-
     $('.js-question-section').show();
 }
 
-// adds 1 to questionCounter and rerenders question questionCounter
-function addToQuestionCounter() {
-    questionCounter++;
-    //console.log(`questionCounter is ${questionCounter}`);
-
-    renderQuestionCount();
+function answerFeedbackToReset() {
+    $('.js-answer-feedback').hide();
+    $('.js-score-feedback').show();
 }
 
-function nextQuestion() {
-    // responsible for going on to the next question, by clicking the next
-    // question button
+function handleNext() {
     $('.js-next-question').on('click', function() {
-        //console.log('nextQuestion() is running');
 
-        // render new question count
-        addToQuestionCounter();
+        if (questionCounter == allOfQuestions - 1) {
+            answerFeedbackToReset();
+        } else {
+            answerFeedbackToNext()
 
-        // hide answer-feedback section and rerender question-section
-        rerenderQuestionSection();
+            generateQuestionCount()
 
-        // go on to next question
-        rerenderQuestion();
-
+            renderQuestion();
+        }
     });
-
 }
 
 
 
 /* ---------- RESET QUIZ SECTION ---------- */
 
-
-function hideScoreFeedback() {
+function resetToQuestion() {
     $('.js-score-feedback').hide();
+    $('.js-question-section').show();
 }
 
+function resetProgress() {
+    score = 0;
+    questionCounter = 0;
 
-function restartQuiz() {
+    renderQuestionCount();
+    renderScore();
+}
+
+function handleRestart() {
     // responsible for restarting the quiz by selecting the restart button
     // on the results page
 
     $('.js-quiz-reset').on('click', function() {
-        console.log('reset quiz button was clicked');
-        console.log(`score is ${score} and question is ${questionCounter}`);
-        
-        // hide score feedback 
-        hideScoreFeedback();
-        
-        // reset score
+        resetToQuestion();
 
+        resetProgress();
 
-        // reset question count
-
-
-        // rerender question section
-        
-        
-        
-        
-        // rerender the first question
-        
-
+        renderQuestion();
     });
-    
-    
-    
 }
 
 function handleYellowstone() {
-    startQuiz();
-    submitAnswer();
-    nextQuestion();
-    restartQuiz();
+    handleStart();
+    handleAnswer();
+    handleNext();
+    handleRestart();
 }
 
 $(handleYellowstone);
