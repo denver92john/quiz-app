@@ -34,7 +34,7 @@ const questions = [
         correct: '640,000 years ago'
     },
     {
-        question: '5. In which states does Yellowstone spread across?',
+        question: '5. Which U.S. states does Yellowstone National Park spread across?',
         ansA: 'Maine, Canada, and New York',
         ansB: 'Idaho, Wyoming, and Montana',
         ansC: 'California, Nevada, and Arizona',
@@ -50,7 +50,7 @@ const questions = [
         correct: '7733 feet'
     },
     {
-        question: '7. Which animal species in Yellowstone did the government eradicate, and then reintroduce to the ecosystem?',
+        question: '7. Which animal species in Yellowstone did the U.S. government eradicate, and then reintroduce to the ecosystem?',
         ansA: 'Bison',
         ansB: 'Grey Wolf',
         ansC: 'Moose',

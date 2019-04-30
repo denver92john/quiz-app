@@ -7,12 +7,12 @@ body {
 }
 main {
     height: 75vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://gypsyguide.com/wp-content/uploads/2017/09/Yellowstone-and-Grand-Teton-National-Park-Tours-850x429.jpg)  center / cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/thermal.jpg)  center / cover no-repeat;
     padding: 20px;
 }
 section {
     display: none;
-    max-width: 1146px;
+    max-width: 975px;
     margin: auto;
 }
 
@@ -35,37 +35,35 @@ h3 {
 }
 
 /* BUTTONS */
-.start-button {
+button {
     display: block;
+}
+
+.start-button {
     margin: 50px auto 0;
     padding: 10px 25px;
     font-size: 1.5em;
 }
 
 .answer-button {
-    display: block;
     margin: 10px auto 0;
     padding: 10px;
 }
 
 .next-question {
     font-size: 1.25em;
-    display: block;
     margin: auto;
     padding: 10px;
 }
 
 .quiz-reset {
     font-size: 1.25em;
-    display: block;
     margin: 40px auto 0;
     padding: 10px;
 }
 
 
 /* PROGESS CONTENT - questions number and score */
-/* what about changing score-div and question-div 
-to the same class name of progress? */
 .progress {
     text-align: center;
     font-size: 1.5em;
@@ -76,11 +74,16 @@ to the same class name of progress? */
 /* HEADER */
 header {
     height: 20vh;
+    background: rgba(0, 102, 204, 0.75);
+}
+
+.head-container {
+    height: 100%;
     margin: auto;
     padding: 10px;
     max-width: 1146px;
-    background: rgba(255, 97, 97, 0.5);
 }
+
 .logo {
     display: block;
     margin: auto;
@@ -143,7 +146,8 @@ header {
 
 .final-feedback-img {
     display: block;
-    width: 60%;
+    width: 40%;
+    max-width: 285px;
     margin: auto;
 }
 
@@ -154,32 +158,7 @@ footer {
     position: fixed;
     height: 5vh;
     width: 100vw;
-    background-color: gray;
+    background-color: rgba(255, 153, 51);
     bottom: 0;
 }
 
-
-
-
-
-/* THIS INFO IN queries.css BUT STILL NEEDS TO
-BE LINKED TO IN index.html
-
-ITS BEEN LINKED BUT STILL NEED TO RESTRUCTURE
-quiz-app FOLDER
-
-@media screen and (min-width: 680px) {
-    header div {
-        position: absolute;
-        bottom: 30px;
-    }
-    .logo {
-        left: 35px;
-    }
-    .score-div {
-        right: 35px;
-        font-size: 2em;
-    }
-    
-}
-*/

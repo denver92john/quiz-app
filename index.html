@@ -7,15 +7,17 @@
     <meta name="description" content="How well do you know America's oldest national park?">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="queries.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/queries.css">
 </head>
 <body>
     <header role="banner">
-        <div>
-            <img src="https://www.nps.gov/common/commonspot/templates/assetsCT/images/branding/nps_logo-bw.gif" alt="National Park Service" class="logo">
+        <div class="head-container">
+            <div>
+                <img src="img/nps_logo-bw.png" alt="National Park Service" class="logo">
+            </div>
+            <div class="progress"><span class="js-current-score">Score: 0</span></div>
         </div>
-        <div class="progress"><span class="js-current-score">Score: 0</span></div>
     </header>
 
     <main role="main">
@@ -26,7 +28,7 @@
             
         <section role="region" class="question-section js-question-section">
             <h2 class="js-q"></h2>
-            <form class="question-form">
+            <form class="question-form js-question-form">
                 <label class="form-options">
                     <input type="radio" name="answer" id="option1" value="">
                     <span class="answer-option js-ans-opt1"></span>
@@ -54,10 +56,9 @@
         </section>
 
         <section role="region" class="score-feedback js-score-feedback">
-            <h3>Looks like you know Yellowstone National Park pretty well!</h3>
-            <img src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAwNC8zMDMvb3JpZ2luYWwvMDcxMTMwLWdleXNlci1mYWl0aGZ1bC0wMi5qcGc=
-            " alt="old faithful" class="final-feedback-img">
-            <button type="button" class="quiz-reset js-quiz-reset">Try Again</button>
+            <h3 class="js-score-feedback-text"></h3>
+            <img src="img/old-faithful.png" alt="old faithful" class="final-feedback-img">
+            <button type="button" class="quiz-reset js-quiz-reset">Try Again!</button>
         </section>
     </main>
 
@@ -68,8 +69,8 @@
     src="https://code.jquery.com/jquery-3.4.0.min.js"
     integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
     crossorigin="anonymous"></script>
-    <script src="questions.js"></script>
-    <script src="index.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

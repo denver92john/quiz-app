@@ -6,17 +6,53 @@
     }
 
     /* HEADER ELEMENTS */
-    header {
+    .head-container {
         position: relative;
     }
-    header div {
+
+    .head-container div {
+        position: absolute;
+        bottom: 3vh;
+    }
+    .head-container div:first-of-type {
+        left: 20px;
+    }
+    .head-container div:last-of-type {
+        right: 20px;
+    }
+
+
+    .progress {
+        margin-top: 5px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+/* 
+.banner {
+        position: relative;
+        
+    }
+    .banner div {
         position: absolute;
         bottom: 1vh;
     }
-    header div:first-of-type {
+    .banner:first-child {
         left: 35px;
     }
-    header div:last-of-type {
+
+    .score-div {
         right: 35px;
     }
     .logo {
@@ -24,13 +60,19 @@
         width: auto;
     }
 
-    /* PROGRESS */
+    
     .progress {
         margin-top: 5px;
     }
 
-    /* STARTING PAGE */
+    
     .start-quiz {
         margin-top: 100px;
     }
-}
+
+
+
+
+
+
+*/
