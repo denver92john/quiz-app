@@ -1,8 +1,5 @@
 'use strict';
 
-const correctAnswerImg = "../img/mountain.jpg";
-const wrongAnswerImg = "../img/bear.jpg";
-
 let questionCounter = 0;
 let score = 0;
 let allOfQuestions = questions.length;
@@ -28,7 +25,6 @@ function generateQuestionCount() {
     if (questionCounter == allOfQuestions - 2) {
         $('.js-next-question').text('Submit Quiz');
     }
-    
     questionCounter++;
     renderQuestionCount();
 }
@@ -68,8 +64,6 @@ function handleStart() {
 /* ---------- SUBMIT ANSWER SECTION ---------- */
 
 
-
-
 function questionToAnswerFeedback() {
     // hides question section and shows answer feedback section
     $('.js-question-section').hide();
@@ -81,12 +75,13 @@ function checkAnswer() {
     let correctAnswer = questions[questionCounter].correct;
     
     if (userSelection === undefined) {
+        // if no answer selected question restarts
         $('.js-answer-image').attr({'src': './img/bear.jpg', 'alt': 'The wrong answer image'});
         $('.js-answer-feedback-text').text('Please select an answer');
         questionCounter--;
     } else if (userSelection === correctAnswer) {
+        // if answer correct adds 1 to score
         score++;
-
         $('.js-answer-image').attr({'src': './img/mountain.jpg', 'alt': 'The correct answer image'});
         $('.js-answer-feedback-text').text(`${correctAnswer} is the correct answer`);
     } else {
@@ -101,23 +96,19 @@ function renderScore() {
 }
 
 function handleAnswer() {
-    $('.js-answer-button').on('click', function() {
-        // render score-feedback section
+    $('.js-question-form').on('submit', function(event) {
+        event.preventDefault();
         questionToAnswerFeedback();
-
         checkAnswer();
-        $('input:checked').prop('checked', false);
 
-        // render new score if correct
+        // resets radio buttons
+        $('input:checked').prop('checked', false);
         renderScore();
     });
 }
 
 
-
-
 /* ---------- NEXT QUESTION SECTION ---------- */
-
 
 
 function answerFeedbackToReset() {
@@ -126,7 +117,6 @@ function answerFeedbackToReset() {
 }
 
 function evaluateScore() {
-
     if (score > 7) {
         $('.js-score-feedback-text').text(`Congrats! You passed your score is ${score * 10}%`);
     } else {
@@ -139,31 +129,26 @@ function answerFeedbackToNext() {
     $('.js-question-section').show();
 }
 
-
-
 function handleNext() {
     $('.js-next-question').on('click', function() {
         if (questionCounter == allOfQuestions - 1) {
-            
+            // if last question
             answerFeedbackToReset();
-
             evaluateScore();
-            
         } else {
             answerFeedbackToNext();
-
             generateQuestionCount();
-
             renderQuestion();
         }
     });
 }
 
 
-
 /* ---------- RESET QUIZ SECTION ---------- */
 
+
 function resetToQuestion() {
+    // shows reset page
     $('.js-score-feedback').hide();
     $('.js-question-section').show();
 }
@@ -171,7 +156,7 @@ function resetToQuestion() {
 function resetProgress() {
     score = 0;
     questionCounter = 0;
-
+    // replaces text for last question button back to normal
     $('.js-next-question').text('Next Question');
 
     renderQuestionCount();
@@ -179,14 +164,11 @@ function resetProgress() {
 }
 
 function handleRestart() {
-    // responsible for restarting the quiz by selecting the restart button
-    // on the results page
-
     $('.js-quiz-reset').on('click', function() {
         resetToQuestion();
-
         resetProgress();
 
+        // renders first question
         renderQuestion();
     });
 }

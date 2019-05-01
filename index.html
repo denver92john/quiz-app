@@ -16,7 +16,7 @@
             <div>
                 <img src="img/nps_logo-bw.png" alt="National Park Service" class="logo">
             </div>
-            <div class="progress"><span class="js-current-score">Score: 0</span></div>
+            <div class="progress score-div"><span class="js-current-score">Score: 0</span></div>
         </div>
     </header>
 
@@ -45,25 +45,25 @@
                     <input type="radio" name="answer" id="option4" value="">
                     <span class="answer-option js-ans-opt4"></span>
                 </label>
-                <button type="button" class="answer-button js-answer-button">Submit Answer</button>
+                <input type="submit" class="answer-button js-answer-button" value="Submit Answer">
             </form>
         </section>
 
         <section role="region" class="answer-feedback js-answer-feedback">
             <img src="" alt="" class="answer-image js-answer-image">
-            <h3 class="js-answer-feedback-text"></h3>
+            <h3 class="answer-feedback-text js-answer-feedback-text"></h3>
             <button class="next-question js-next-question">Next Question</button>
         </section>
 
         <section role="region" class="score-feedback js-score-feedback">
             <h3 class="js-score-feedback-text"></h3>
-            <img src="./img/old-faithful.png" alt="old faithful" class="final-feedback-img">
+            <img src="img/old-faithful.PNG" alt="old faithful" class="final-feedback-img">
             <button type="button" class="quiz-reset js-quiz-reset">Try Again!</button>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <div class="progress"><span class="js-question-count">Question: 0/10</span></div>
+        <div class="progress question-div"><span class="js-question-count">Question: 0/10</span></div>
     </footer>
     <script
     src="https://code.jquery.com/jquery-3.4.0.min.js"

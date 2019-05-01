@@ -6,9 +6,9 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 main {
-    height: 75vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/thermal.jpg)  center / cover no-repeat;
-    padding: 20px;
+    height: 73vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url(../img/thermal.jpg)  center / cover no-repeat;
+    padding: 5px 2px 0;
 }
 section {
     display: none;
@@ -21,20 +21,31 @@ h1, h2, h3 {
     text-align: center;
     color: antiquewhite;
 }
+
 h1 {
     font-size: 2em;
 }
+
 h2 {
-    font-size: 1.75em;
-    margin: 10px 0 30px;
+    font-size: 1.25em;
+    margin: 10px 0 20px;
+    padding: 0 5px;
 }
+
 h3 {
     color: black;
-    margin-bottom: 40px;
+    margin: 20px 0;
     font-size: 1.3em;
 }
 
 /* BUTTONS */
+
+.answer-button {
+    display: block;
+    margin: 10px auto 0;
+    padding: 10px;
+}
+
 button {
     display: block;
 }
@@ -45,10 +56,7 @@ button {
     font-size: 1.5em;
 }
 
-.answer-button {
-    margin: 10px auto 0;
-    padding: 10px;
-}
+
 
 .next-question {
     font-size: 1.25em;
@@ -62,32 +70,47 @@ button {
     padding: 10px;
 }
 
-
-/* PROGESS CONTENT - questions number and score */
-.progress {
-    text-align: center;
-    font-size: 1.5em;
-    margin-top: 10px;
+input[type="radio"] {
+    transform: scale(1.3);
 }
 
 
 /* HEADER */
 header {
-    height: 20vh;
+    height: auto;
     background: rgba(0, 102, 204, 0.75);
 }
 
 .head-container {
-    height: 100%;
+    height: 22vh;
+    min-height: 125px;
     margin: auto;
     padding: 10px;
-    max-width: 1146px;
+    max-width: 1000px;
 }
 
 .logo {
     display: block;
     margin: auto;
-    width: 100px;
+    height: 14vh;
+    min-height: 80px;
+    width: auto;
+}
+
+
+/* PROGESS CONTENT - questions number and score */
+.progress {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.score-div {
+    margin-top: 5px;
+}
+
+.question-div {
+    position: relative;
+    bottom: -0.5vh;
 }
 
 
@@ -98,20 +121,14 @@ header {
 }
 
 
-/* QUESTION SECTION 
-.question-section {
-    display: block;
-}
-*/
-
 /* FORM SECTION */
 .question-form {
     width: 80vw;
     max-width: 800px;
     background: linear-gradient(rgba(250, 235, 215, 0.5), rgba(250, 235, 215, 0.5));
     margin: auto;
-    padding: 15px;
-    font-size: 1.3em;
+    padding: 8px 5px 5px 10px;
+    font-size: 1.18em;
 }
 .form-options {
     display: block;
@@ -123,25 +140,19 @@ header {
 }
 
 
-/* ANSWER-QUESTION RESPONSE SECTION */
-.answer-feedback {
+/* ANSWER-QUESTION RESPONSE AND OVERALL SCORE SECTION */
+.answer-feedback, .score-feedback {
     width: 90vw;
     padding: 20px;
+    margin-top: 10px;
     background: linear-gradient(rgba(250, 235, 215, 0.5), rgba(250, 235, 215, 0.5));
 }
+
 .answer-image {
     display: block;
-    width: 75%;
+    width: 90%;
+    max-width: 600px;
     margin: auto;
-}
-
-
-
-/* OVERALL SCORE SECTION */
-.score-feedback {
-    width: 90vw;
-    padding: 20px;
-    background: linear-gradient(rgba(250, 235, 215, 0.5), rgba(250, 235, 215, 0.5));
 }
 
 .final-feedback-img {
@@ -157,6 +168,7 @@ header {
 footer {
     position: fixed;
     height: 5vh;
+    min-height: 35px;
     width: 100vw;
     background-color: rgba(255, 153, 51);
     bottom: 0;
